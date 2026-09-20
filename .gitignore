@@ -1,20 +1,40 @@
-/.vscode/
-.idea
+```
+# Build artifacts
+zig-cache/
+zig-out/
 
+# Dependencies
+deps/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
 .DS_Store
+Thumbs.db
 
-# goreleaser builds folder
-/.builds/
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
 
-# tests coverage
-coverage.out
-
-# plaintask todo files
-*.todo
-
-# generated markdown previews
-README.html
-CHANGELOG.html
-CHANGELOG_16_22.html
-CHANGELOG_8_15.html
-LICENSE.html
+# Python specific (if applicable)
+__pycache__/
+*.pyc
+*.pyo
+.Python
+*.so
+*.egg-info/
+```

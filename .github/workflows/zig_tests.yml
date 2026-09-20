@@ -1,0 +1,38 @@
+name: Zig Backend Tests
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'zig_backend/**'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'zig_backend/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install Zig
+      uses: goto-bus-stop/setup-zig@v2
+      with:
+        version: 0.13.0
+    
+    - name: Verify Zig installation
+      run: zig version
+    
+    - name: Build project
+      working-directory: ./zig_backend
+      run: zig build
+    
+    - name: Run tests
+      working-directory: ./zig_backend
+      run: zig build test
+    
+    - name: Build release
+      working-directory: ./zig_backend
+      run: zig build -Doptimize=ReleaseFast
